@@ -1,0 +1,7 @@
+{
+  "root_folder_id": "YOUR_PROJECT_FOLDER_ID",
+  "data_folder_id": "YOUR_DATA_FOLDER_ID",
+  "outputs_folder_id": "YOUR_OUTPUTS_FOLDER_ID",
+  "owner_account": "you@example.com",
+  "shared_accounts": []
+}

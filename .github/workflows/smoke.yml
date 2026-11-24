@@ -1,0 +1,25 @@
+name: Local smoke check
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m compileall -q app_workbench.py colab scripts
+      - run: bash -n colab/serve_sglang.sh
+      - run: |
+          python scripts/launch_sft_v2.py --help
+          python scripts/run_a100_base_rollout_550.py --help
+          python colab/train_sft_v2.py --help
+          python colab/chat_xiaoyu.py --help
+          python -c 'from app_workbench import build_ui; build_ui()'

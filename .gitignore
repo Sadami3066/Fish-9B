@@ -1,0 +1,29 @@
+# Local environments and interpreter output
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+
+# Local inputs, exported data and runtime state
+/.local/
+/data/
+/model_cache/
+/checkpoints/
+/outputs/
+/runs/
+/tb_logs/
+/configs/drive_ids.json
+*.log
+*.jsonl
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.gguf
+*.zip
+*.tar.gz
