@@ -9,8 +9,8 @@ jobs:
   smoke:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
           cache: pip
@@ -22,4 +22,4 @@ jobs:
           python scripts/run_a100_base_rollout_550.py --help
           python colab/train_sft_v2.py --help
           python colab/chat_xiaoyu.py --help
-          python -c 'from app_workbench import build_ui; build_ui()'
+          GRADIO_ANALYTICS_ENABLED=False python -c 'from app_workbench import build_ui; build_ui()'
